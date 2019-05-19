@@ -152,6 +152,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             if (task.isSuccessful() && currentLocation != null) {
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(toLatLng(currentLocation), DEFAULT_ZOOM));
                 mMap.setMyLocationEnabled(true);
+                mMap.getUiSettings().setZoomControlsEnabled(true);
+                mMap.getUiSettings().setCompassEnabled(true);
             } else {
                 Toast.makeText(MapsActivity.this, R.string.current_location_failed, Toast.LENGTH_SHORT).show();
             }
