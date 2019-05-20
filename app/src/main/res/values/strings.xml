@@ -12,7 +12,10 @@
     <!--MapsActivity.java-->
     <string name="origin_address_empty">Origin Address is Empty</string>
     <string name="destination_address_empty">Destination Address is Empty</string>
+    <string name="origin_address_failed">Can\'t find origin address</string>
+    <string name="destination_address_failed">Can\'t find destination address</string>
     <string name="current_location_failed">Unable to find your location</string>
     <string name="origin_marker">Origin Address</string>
     <string name="destination_marker">Destination Address</string>
+    <string name="calculate_direction_failed">Direction calculation failed</string>
 </resources>

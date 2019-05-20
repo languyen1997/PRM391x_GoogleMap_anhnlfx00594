@@ -11,7 +11,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -172,21 +171,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private void geoLocate(String originAddress, String destinationAddress) {
         Geocoder geocoder = new Geocoder(this);
 
-        List<Address> originAddressList = new ArrayList<>();
+        List<Address> originAddressList;
         try {
             originAddressList = geocoder.getFromLocationName(originAddress, 1);
         } catch (IOException e) {
-            Log.e("MyDebug", "geoLocate originAddress", e);
+            Toast.makeText(getApplicationContext(), R.string.origin_address_failed, Toast.LENGTH_SHORT).show();
+            return;
         }
 
         LatLng startPoint = toLatLng(originAddressList.get(0));
         placeMarker(startPoint, getString(R.string.origin_marker), MARKER_COLOR_RED);
 
-        List<Address> destinationAddressList = new ArrayList<>();
+        List<Address> destinationAddressList;
         try {
             destinationAddressList = geocoder.getFromLocationName(destinationAddress, 1);
         } catch (IOException e) {
-            Log.e("MyDebug", "geoLocate destinationAddress", e);
+            Toast.makeText(getApplicationContext(), R.string.destination_address_failed, Toast.LENGTH_SHORT).show();
+            return;
         }
 
         LatLng endPoint = toLatLng(destinationAddressList.get(0));
@@ -233,7 +234,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             @Override
             public void onFailure(Throwable e) {
-                Log.e("MyDebug", "calculateDirection Failed!", e);
+                runOnUiThread(() ->
+                    Toast.makeText(getApplicationContext(), R.string.calculate_direction_failed, Toast.LENGTH_SHORT).show());
             }
         });
     }
