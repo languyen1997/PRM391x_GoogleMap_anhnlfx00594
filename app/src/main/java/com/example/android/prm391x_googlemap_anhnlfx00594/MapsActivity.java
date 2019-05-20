@@ -19,7 +19,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -77,6 +76,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             String originAddress = editText1.getText().toString();
             EditText editText2 = findViewById(R.id.destination_address);
             String destinationAddress = editText2.getText().toString();
+
+            if (originAddress.isEmpty()) {
+                Toast.makeText(getApplicationContext(), R.string.origin_address_empty, Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if (destinationAddress.isEmpty()) {
+                Toast.makeText(getApplicationContext(), R.string.destination_address_empty, Toast.LENGTH_SHORT).show();
+                return;
+            }
 
             geoLocate(originAddress, destinationAddress);
             hideSoftKeyboard();
