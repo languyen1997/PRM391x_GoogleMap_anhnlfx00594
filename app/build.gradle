@@ -44,4 +44,8 @@ dependencies {
     implementation 'com.google.maps:google-maps-services:0.9.3'
     implementation 'org.slf4j:slf4j-simple:1.7.25'
 
+    //Microsoft App Center SDK
+    def appCenterSdkVersion = '2.0.0'
+    implementation "com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}"
+    implementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
 }

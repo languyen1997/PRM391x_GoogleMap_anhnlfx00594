@@ -36,6 +36,9 @@ import com.google.maps.GeoApiContext;
 import com.google.maps.internal.PolylineEncoding;
 import com.google.maps.model.DirectionsResult;
 import com.google.maps.model.DirectionsRoute;
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -89,6 +92,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             geoLocate(originAddress, destinationAddress);
             hideSoftKeyboard();
         });
+
+        //Microsoft App Center Analytics
+        AppCenter.start(getApplication(), "154297a9-83e7-4101-93ec-504f557aa20c", Analytics.class, Crashes.class);
     }
 
     /**
