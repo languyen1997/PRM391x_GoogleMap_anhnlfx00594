@@ -1,8 +1,8 @@
-package com.example.android.prm391x_googlemap_anhnlfx00594;
+package io.github.languyen1997.prm391x_googlemap_anhnlfx00594;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Example local unit test, which will execute on the development machine (host).

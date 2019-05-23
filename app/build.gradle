@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.example.android.prm391x_googlemap_anhnlfx00594"
+        applicationId "io.github.languyen1997.prm391x_googlemap_anhnlfx00594"
         minSdkVersion 26
         targetSdkVersion 28
         versionCode 1

@@ -1,4 +1,4 @@
-package com.example.android.prm391x_googlemap_anhnlfx00594;
+package io.github.languyen1997.prm391x_googlemap_anhnlfx00594;
 
 import android.Manifest;
 import android.content.Context;
